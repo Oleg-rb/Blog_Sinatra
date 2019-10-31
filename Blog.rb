@@ -19,7 +19,7 @@ configure do
 	@db.execute 'create table if not exists Posts 
 	(
 	id integer primary key autoincrement,
-	created_date date
+	created_date date,
 	content text
 	)'
 end
@@ -34,6 +34,8 @@ end
 
 post '/new' do
 	content = params[:content]
+
+	@db.execute 'insert into Posts (content, created_date) values (?, datetime())', [content]
 
 	if content.length < 1
 		@error = 'Type post text'
