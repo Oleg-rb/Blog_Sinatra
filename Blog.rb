@@ -13,6 +13,17 @@ def init_db
 	@db.results_as_hash = true
 end
 
+configure do
+	init_db
+
+	@db.execute 'create table if not exists Posts 
+	(
+	id integer primary key autoincrement,
+	created_date date
+	content text
+	)'
+end
+
 get '/' do
 	erb "Hello! <a href=\"https://github.com/Oleg-rb/Template/\">Original</a> pattern has been modified for <a href=\"https://github.com/Oleg-rb/Template/\">Template</a>"			
 end
