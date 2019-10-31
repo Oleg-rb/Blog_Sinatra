@@ -25,7 +25,7 @@ configure do
 end
 
 get '/' do
-	erb "Hello! <a href=\"https://github.com/Oleg-rb/Template/\">Original</a> pattern has been modified for <a href=\"https://github.com/Oleg-rb/Template/\">Template</a>"			
+	erb :index		
 end
 
 get '/new' do
