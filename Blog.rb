@@ -44,5 +44,5 @@ post '/new' do
 		return erb :new
 	end
 
-	erb "You typed #{content}"
+	erb redirect '/'
 end
